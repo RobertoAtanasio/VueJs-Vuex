@@ -96,6 +96,7 @@ export default {
 
             /* eslint-disable-next-line */
             console.log(this.$store.getters.getNome)    // obtem o atributo definido em getters.js
+            /* eslint-disable-next-line */
             console.log(this.$store.getters.getNomeCompleto)    // obtem o atributo definido em getters.js
         }
     }
