@@ -26,22 +26,38 @@
 </template>
 
 <script>
+
+// não precisa mais de data() pois está ma store.js.
+// a propriedade computada embora seja um método, ela é acessada como um atributo.
+
+// Com o ...mapGetters({ é uma forma de acessar o getters com outras propriedade computadas.
+
+import { mapGetters } from 'vuex'
+
 export default {
     computed: {
-        total() {
-            return this.produtos.map(p => p.quantidade * p.preco)
-                .reduce((total, atual) => total + atual, 0)
+        ...mapGetters('carrinho', {
+            total: 'valorTotal'
+        }),
+        // total() {
+        //     return this.$store.getters.valorTotal
+        //     // return this.produtos
+        //     //     .map(p => p.quantidade * p.preco)
+        //     //     .reduce((total, atual) => total + atual, 0)
+        // },
+        produtos() {
+            return this.$store.state.carrinho.produtos
         }
     },
-    data() {
-        return {
-            produtos: [
-                { id: 1, nome: 'Produto 1', quantidade: 7, preco: 14.55 },
-                { id: 2, nome: 'Produto 2', quantidade: 10, preco: 22.99 },
-                { id: 3, nome: 'Produto 3', quantidade: 1, preco: 43.18 },
-            ]
-        }
-    }
+    // data() {
+    //     return {
+    //         produtos: [
+    //             { id: 1, nome: 'Produto 1', quantidade: 7, preco: 14.55 },
+    //             { id: 2, nome: 'Produto 2', quantidade: 10, preco: 22.99 },
+    //             { id: 3, nome: 'Produto 3', quantidade: 1, preco: 43.18 },
+    //         ]
+    //     }
+    // }
 }
 </script>
 

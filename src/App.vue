@@ -30,7 +30,7 @@ export default {
 }
 
 body {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	background: linear-gradient(to right, rgb(0, 0, 0), rgb(67, 67, 67));
 }
 
@@ -50,7 +50,7 @@ h1 {
 }
 
 button {
-	font-size: 1.8rem;
+	font-size: 1.2rem;
 	padding: 5px 15px;
 	border-radius: 5px;
 	color: #222;

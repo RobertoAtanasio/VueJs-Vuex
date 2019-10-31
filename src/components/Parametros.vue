@@ -2,11 +2,11 @@
     <Painel titulo="Parâmetros" vermelho>
         <div class="parametros">
             <span>
-                <strong>Quantidade Padrão: </strong> 
+                <strong>Quantidade Padrão </strong> 
                 <input type="number" v-model="quantidade">
             </span>
             <span>
-                <strong>Preço Padrão: </strong>
+                <strong>Preço Padrão </strong>
                 <input type="number" v-model="preco">
             </span>
         </div>
@@ -15,12 +15,32 @@
 
 <script>
 export default {
-    data() {
-        return {
-            quantidade: 0,
-            preco: 0
+    computed: {
+        // tratamento para Vuex e two-way binding (v-model). O set usa a mutation.
+        quantidade: {
+            get () {
+                return this.$store.state.parametros.quantidade
+            },
+            set (valor) {
+                this.$store.commit('setQuantidade', valor)
+            }
+        },
+        preco: {
+            get () {
+                return this.$store.state.parametros.preco
+            },
+            set (valor) {
+                this.$store.commit('setPreco', valor)
+            }
         }
-    }
+    },
+    //--- valores movidos para o store.js
+    // data() {
+    //     return {
+    //         quantidade: 0,
+    //         preco: 0
+    //     }
+    // }
 }
 </script>
 
